@@ -61,8 +61,8 @@ class iconvExecutor extends Execution {
         } else {
           let endOptions = {
             end: "error",
-            messageLog: `Error Iconv files not setted: file_input: ${_file_input} / file_output: ${res.file_output}`,
-            execute_err_return: `Error Iconv files not setted: file_input: ${_file_input} / file_output: ${res.file_output}`
+            messageLog: `Error Iconv files not setted: file_input: ${res.file_input} / file_output: ${res.file_output}`,
+            execute_err_return: `Error Iconv files not setted: file_input: ${res.file_input} / file_output: ${res.file_output}`
           };
           _this.end(endOptions);
         }
