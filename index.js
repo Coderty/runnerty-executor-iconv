@@ -1,7 +1,7 @@
 "use strict";
 
-var iconv = require('iconv-lite');
-var fs = require('fs');
+var iconv = require("iconv-lite");
+var fs = require("fs");
 
 var Execution = global.ExecutionClass;
 
@@ -28,39 +28,39 @@ class iconvExecutor extends Execution {
             .pipe(iconv.encodeStream(res.encode_encoding))
             .pipe(fileStreamOutput);
 
-          fileStream.on('error', function (err) {
-            var endOptions = {
-              end: 'error',
+          fileStream.on("error", function (err) {
+            let endOptions = {
+              end: "error",
               messageLog: `Error Iconv reading file ${res.file_input}: ${err}`,
               execute_err_return: `Error Iconv reading file ${res.file_input}: ${err}`
             };
             _this.end(endOptions);
           });
 
-          decoderStream.on('error', function (err, str) {
-            var endOptions = {
-              end: 'error',
+          decoderStream.on("error", function (err) {
+            let endOptions = {
+              end: "error",
               messageLog: `Error Iconv decoding (${res.decode_encoding}) file ${res.file_input}: ${err}`,
               execute_err_return: `Error Iconv decoding (${res.decode_encoding}) file ${res.file_input}: ${err}`
             };
             _this.end(endOptions);
           });
 
-          fileStreamOutput.on('error', function (err) {
-            var endOptions = {
-              end: 'error',
+          fileStreamOutput.on("error", function (err) {
+            let endOptions = {
+              end: "error",
               messageLog: `Error Iconv writing encoded file ${res.file_output}: ${err}`,
               execute_err_return: `Error Iconv writing encoded file ${res.file_output}: ${err}`
             };
             _this.end(endOptions);
           });
 
-          fileStreamOutput.on('close', function () {
+          fileStreamOutput.on("close", function () {
             _this.end();
           });
         } else {
-          var endOptions = {
-            end: 'error',
+          let endOptions = {
+            end: "error",
             messageLog: `Error Iconv files not setted: file_input: ${_file_input} / file_output: ${res.file_output}`,
             execute_err_return: `Error Iconv files not setted: file_input: ${_file_input} / file_output: ${res.file_output}`
           };
@@ -68,17 +68,17 @@ class iconvExecutor extends Execution {
         }
 
       } else {
-        var endOptions = {
-          end: 'error',
-          messageLog: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? 'supported' : 'not supported'} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? 'supported' : 'not supported'}`,
-          execute_err_return: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? 'supported' : 'not supported'} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? 'supported' : 'not supported'}`
+        let endOptions = {
+          end: "error",
+          messageLog: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"}`,
+          execute_err_return: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"}`
         };
         _this.end(endOptions);
       }
 
     } else {
-      var endOptions = {
-        end: 'error',
+      let endOptions = {
+        end: "error",
         messageLog: `Error Iconv encoders not setted. decode_encoding: ${res.decode_encoding} / encode_encoding: ${res.encode_encoding}`,
         execute_err_return: `Error Iconv encoders not setted. decode_encoding: ${res.decode_encoding} / encode_encoding: ${res.encode_encoding}`
       };
