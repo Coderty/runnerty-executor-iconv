@@ -1,6 +1,6 @@
 {
   "name": "@runnerty/executor-iconv",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Runnerty module: ICONV executor",
   "author": "Coderty",
   "license": "MIT",
@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/Coderty/runnerty-executor-iconv#readme",
   "dependencies": {
-    "iconv-lite": "^0.4.15"
+    "iconv-lite": "^0.4.18"
   }
 }
