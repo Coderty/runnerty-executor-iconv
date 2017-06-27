@@ -4,7 +4,7 @@
 ```json
 {
   "id": "iconv_default",
-  "type": "@runnerty/executor-iconv"
+  "type": "@runnerty-executor-iconv"
 }
 ```
 
