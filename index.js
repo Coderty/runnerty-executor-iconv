@@ -32,7 +32,7 @@ class iconvExecutor extends Execution {
             let endOptions = {
               end: "error",
               messageLog: `Error Iconv reading file ${res.file_input}: ${err}`,
-              execute_err_return: `Error Iconv reading file ${res.file_input}: ${err}`
+              err_output: `Error Iconv reading file ${res.file_input}: ${err}`
             };
             _this.end(endOptions);
           });
@@ -41,7 +41,7 @@ class iconvExecutor extends Execution {
             let endOptions = {
               end: "error",
               messageLog: `Error Iconv decoding (${res.decode_encoding}) file ${res.file_input}: ${err}`,
-              execute_err_return: `Error Iconv decoding (${res.decode_encoding}) file ${res.file_input}: ${err}`
+              err_output: `Error Iconv decoding (${res.decode_encoding}) file ${res.file_input}: ${err}`
             };
             _this.end(endOptions);
           });
@@ -50,7 +50,7 @@ class iconvExecutor extends Execution {
             let endOptions = {
               end: "error",
               messageLog: `Error Iconv writing encoded file ${res.file_output}: ${err}`,
-              execute_err_return: `Error Iconv writing encoded file ${res.file_output}: ${err}`
+              err_output: `Error Iconv writing encoded file ${res.file_output}: ${err}`
             };
             _this.end(endOptions);
           });
@@ -62,7 +62,7 @@ class iconvExecutor extends Execution {
           let endOptions = {
             end: "error",
             messageLog: `Error Iconv files not setted: file_input: ${res.file_input} / file_output: ${res.file_output}`,
-            execute_err_return: `Error Iconv files not setted: file_input: ${res.file_input} / file_output: ${res.file_output}`
+            err_output: `Error Iconv files not setted: file_input: ${res.file_input} / file_output: ${res.file_output}`
           };
           _this.end(endOptions);
         }
@@ -71,7 +71,7 @@ class iconvExecutor extends Execution {
         let endOptions = {
           end: "error",
           messageLog: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"}`,
-          execute_err_return: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"}`
+          err_output: `Error Iconv encodings not supported. decode_encoding: ${res.decode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"} / encode_encoding: ${res.encode_encoding} ${iconv.encodingExists(res.decode_encoding) ? "supported" : "not supported"}`
         };
         _this.end(endOptions);
       }
@@ -80,7 +80,7 @@ class iconvExecutor extends Execution {
       let endOptions = {
         end: "error",
         messageLog: `Error Iconv encoders not setted. decode_encoding: ${res.decode_encoding} / encode_encoding: ${res.encode_encoding}`,
-        execute_err_return: `Error Iconv encoders not setted. decode_encoding: ${res.decode_encoding} / encode_encoding: ${res.encode_encoding}`
+        err_output: `Error Iconv encoders not setted. decode_encoding: ${res.decode_encoding} / encode_encoding: ${res.encode_encoding}`
       };
       _this.end(endOptions);
     }
