@@ -7,7 +7,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Coderty/runnerty-executor-iconv.git"
+    "url": "git+https://github.com/runnerty/executor-iconv.git"
   },
   "keywords": [
     "runnerty",
@@ -15,9 +15,9 @@
     "iconv"
   ],
   "bugs": {
-    "url": "https://github.com/Coderty/runnerty-executor-iconv/issues"
+    "url": "https://github.com/runnerty/executor-iconv/issues"
   },
-  "homepage": "https://github.com/Coderty/runnerty-executor-iconv#readme",
+  "homepage": "https://github.com/runnerty/executor-iconv#readme",
   "dependencies": {
     "iconv-lite": "^0.4.18"
   }
